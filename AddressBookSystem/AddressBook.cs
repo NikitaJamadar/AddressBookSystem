@@ -262,20 +262,43 @@ namespace AddressBookSystem
         }
         public static void PersonSearch()
         {
+            Dictionary<string, List<Person>> cityPersons = new Dictionary<string, List<Person>>();
+            Dictionary<string, List<Person>> statePerson = new Dictionary<string, List<Person>>();
+
             Console.WriteLine("Enter the city that you want to search");
             string cityKey = Console.ReadLine();
+            cityPersons[cityKey] = new List<Person>();
             Console.WriteLine("Enter the state that you want to search");
             string stateKey = Console.ReadLine();
+            statePerson[stateKey] = new List<Person>();
             foreach (string addressBookName in AddressBookDictionary.Keys)
             {
                 foreach (Person contact in AddressBookDictionary[addressBookName])
                 {
-                    if (cityKey.ToLower() == contact.City || stateKey.ToLower() == contact.State)
+                    if (cityKey.ToLower() == contact.City.ToLower())
                     {
-                        Console.WriteLine("In address book {0}, {1} is staying in {2} city and {3} state",
-                            addressBookName, contact.FirstName, contact.City, contact.State);
+                        cityPersons[cityKey].Add(contact);
+                    }
+                    if (stateKey.ToLower() == contact.State.ToLower())
+                    {
+                        statePerson[stateKey].Add(contact);
                     }
                 }
+            }
+            PersonSearchDisplay(cityPersons, statePerson, cityKey, stateKey);
+        }
+
+        public static void PersonSearchDisplay(Dictionary<string, List<Person>> cityPersons, Dictionary<string, List<Person>> statePersons, string cityKey, string stateKey)
+        {
+            Console.WriteLine("------------------- Persons in {0} city-------------------------", cityKey);
+            foreach (Person contact in cityPersons[cityKey])
+            {
+                Console.WriteLine("{0}", contact.FirstName);
+            }
+            Console.WriteLine("--------------------Persons in {0} state", stateKey);
+            foreach (Person contact in statePersons[stateKey])
+            {
+                Console.WriteLine("{0}", contact.FirstName);
             }
         }
     }
