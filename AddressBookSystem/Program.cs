@@ -11,33 +11,27 @@ namespace AddressBookSystem
             while (true)
             {
                 Console.WriteLine("\n Enter your choice \n 1 for Adding Contacts \n 2 for viewing Address book" +
-                    " \n 3 for editing the existing contact \n 4 for deleting the contact");
+                    " \n 3 for editing the existing contact \n 4 for deleting the contact ");
                 Console.WriteLine("................................................");
 
                 int choice = int.Parse(Console.ReadLine());
 
-                Console.WriteLine("................................................");
-
                 switch (choice)
                 {
                     case 1:
-                        AddressBook.EnterDetails();
+                        AddressBook.AddMember();
                         break;
 
                     case 2:
-                        AddressBook obj1 = new AddressBook();
-                        obj1.ViewTheDetails();
+                        AddressBook.ViewTheDetails();
                         break;
 
                     case 3:
-                        AddressBook obj2 = new AddressBook();
-                        obj2.EditDeatils();
+                        AddressBook.EditDeatils();
                         break;
 
-
                     case 4:
-                        AddressBook obj3 = new AddressBook();
-                        obj3.DeleteName();
+                        AddressBook.DeleteName();
                         break;
 
                     default:
