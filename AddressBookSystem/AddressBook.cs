@@ -6,11 +6,27 @@ namespace AddressBookSystem
 {
     class AddressBook
     {
+        private static Dictionary<string, List<Person>> addressBook = new Dictionary<string, List<Person>>();
         public static List<Person> Details = new List<Person>();
-
-
-        public static void EnterDetails()
+        public static void AddMember()
         {
+            string addressBookName;
+
+            Console.WriteLine("Enter The Name of the Address Book");
+            addressBookName = Console.ReadLine();
+
+
+            if (addressBook.Count > 0)
+            {
+                if (addressBook.ContainsKey(addressBookName))
+                {
+                    Console.WriteLine("This name of address book already exists");
+                }
+
+            }
+
+
+
             Console.WriteLine("How many contacts do you want to add?");
             int Count = Convert.ToInt32(Console.ReadLine());
             while (Count > 0)
@@ -84,12 +100,13 @@ namespace AddressBookSystem
 
                 Details.Add(details);
 
-                Console.WriteLine("................................");
+                Console.WriteLine("..................");
                 Count--;
             }
+
         }
 
-        public void ViewTheDetails()
+        public static void ViewTheDetails()
         {
             foreach (var item in Details)
             {
@@ -99,7 +116,7 @@ namespace AddressBookSystem
 
         }
 
-        public void PrintTheDetails(Person item)
+        public static void PrintTheDetails(Person item)
         {
             Console.WriteLine("First Name :   " + item.FirstName);
             Console.WriteLine("Last Name :    " + item.LastName);
@@ -112,16 +129,17 @@ namespace AddressBookSystem
 
 
         }
-        public void EditDeatils()
+
+        public static void EditDeatils()
         {
-            if (Details.Count > 0)
+            if (AddressBook.Details.Count > 0)
             {
                 Console.Write("Enter Name of the contact you want to edit: ");
                 string editDetails = Console.ReadLine();
 
 
 
-                foreach (var item in Details)
+                foreach (var item in AddressBook.Details)
                 {
                     if (editDetails.ToLower() == item.FirstName.ToLower())
                     {
@@ -220,25 +238,22 @@ namespace AddressBookSystem
                 }
 
             }
-            else
-            {
-                Console.WriteLine("Address Book is Empty");
-            }
 
         }
-        public void DeleteName()
+
+        public static void DeleteName()
         {
-            if (Details.Count > 0)
+            if (AddressBook.Details.Count > 0)
             {
                 Console.Write("Enter name of contact you want to delete: ");
                 string deleteName = Console.ReadLine();
 
 
-                foreach (var item in Details)
+                foreach (var item in AddressBook.Details)
                 {
                     if (deleteName.ToLower() == item.FirstName.ToLower())
                     {
-                        Details.Remove(item);
+                        AddressBook.Details.Remove(item);
                         Console.WriteLine(deleteName + "'s Contact is successfully deleted.");
                         break;
                     }
@@ -249,9 +264,10 @@ namespace AddressBookSystem
                     }
                 }
             }
+
             else
             {
-                Console.WriteLine("Address Book is Empty");
+                Console.WriteLine("Address Book is empty.");
             }
         }
     }
