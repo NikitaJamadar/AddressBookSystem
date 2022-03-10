@@ -288,6 +288,7 @@ namespace AddressBookSystem
             PersonSearchDisplay(cityPersons, statePerson, cityKey, stateKey);
         }
 
+
         public static void PersonSearchDisplay(Dictionary<string, List<Person>> cityPersons, Dictionary<string, List<Person>> statePersons, string cityKey, string stateKey)
         {
             Console.WriteLine("------------------- Persons in {0} city-------------------------", cityKey);
@@ -300,6 +301,16 @@ namespace AddressBookSystem
             {
                 Console.WriteLine("{0}", contact.FirstName);
             }
+            Console.WriteLine("Total count of persons in the city {0} is {1}", cityKey, cityPersons[cityKey].Count);
+            Console.WriteLine("--------------------Persons in {0} state", stateKey);
+            foreach (Person contact in statePersons[stateKey])
+            {
+                Console.WriteLine("{0}", contact.FirstName);
+            }
+
+
+            Console.WriteLine("Total count of persons in the state {0} is {1}", stateKey, statePersons[stateKey].Count);
         }
+
     }
 }
