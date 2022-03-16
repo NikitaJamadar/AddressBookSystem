@@ -327,5 +327,41 @@ namespace AddressBookSystem
                 Console.WriteLine("This address book doesn't exists in our record.");
             }
         }
+        public static void SortByCityStateZip()
+        {
+            Console.Write("Enter the name of address book you want to sort: ");
+            string addressBookName = Console.ReadLine();
+            Console.WriteLine("\nNow enter \n1. To sort by cities \n2. To sort by State \n3. To sort by Zip-Code");
+            int choice = int.Parse(Console.ReadLine());
+            Console.WriteLine();
+
+            if (AddressBookDictionary.ContainsKey(addressBookName))
+            {
+                switch (choice)
+                {
+                    case 1:
+                        AddressBookDictionary[addressBookName].Sort((x, y) => x.City.CompareTo(y.City));
+                        break;
+
+                    case 2:
+                        AddressBookDictionary[addressBookName].Sort((x, y) => x.State.CompareTo(y.State));
+                        break;
+
+                    case 3:
+                        AddressBookDictionary[addressBookName].Sort((x, y) => x.ZipCode.CompareTo(y.ZipCode));
+                        break;
+
+                    default:
+                        Console.WriteLine("Please enter valid input.");
+                        break;
+                }
+
+                ViewTheDetails();
+            }
+            else
+            {
+                Console.WriteLine("This address book doesn't exists in our record.");
+            }
+        }
     }
 }
