@@ -43,6 +43,12 @@ namespace AddressBookSystem
                         AddressBook.PersonSearch();
                         break;
 
+                    case 7:
+
+                        AddressBook.SortEntriesAlphabetically();
+                        break;
+
+
                     default:
                         Console.WriteLine("Enter valid choice.");
                         break;

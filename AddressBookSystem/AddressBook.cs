@@ -311,6 +311,21 @@ namespace AddressBookSystem
 
             Console.WriteLine("Total count of persons in the state {0} is {1}", stateKey, statePersons[stateKey].Count);
         }
+        public static void SortEntriesAlphabetically()
+        {
+            Console.Write("Enter the name of address book you want to sort: ");
+            string addressBookName = Console.ReadLine();
+            Console.WriteLine();
 
+            if (AddressBookDictionary.ContainsKey(addressBookName))
+            {
+                AddressBookDictionary[addressBookName].Sort((x, y) => x.FirstName.CompareTo(y.FirstName));
+                ViewTheDetails();
+            }
+            else
+            {
+                Console.WriteLine("This address book doesn't exists in our record.");
+            }
+        }
     }
 }
