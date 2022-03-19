@@ -57,6 +57,11 @@ namespace AddressBookSystem
                         AddressBook.SortByCityStateZip();
                         break;
 
+                    case 9:
+                        AddressBook.WriteAddressBookUsingStreamWriter();
+                        AddressBook.ReadAddressBookUsingStreamReader();
+                        break;
+
                     default:
 
                         Console.WriteLine("Enter valid choice.");
