@@ -15,5 +15,13 @@ namespace AddressBookSystem
         public string PhoneNumber { get; set; }
         public string EmailId { get; set; }
 
+        public override string ToString()
+        {
+            return $"firstName : {this.FirstName}\nlastName : {this.LastName}\naddress : {this.Address}\ncity : {this.City}\nstate : {this.State}\nzipCode : {this.ZipCode}\nphoneNo : {this.PhoneNumber}\nemail : {this.EmailId}";
+        }
     }
 }
+
+
+
+
