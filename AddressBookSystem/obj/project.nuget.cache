@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Puz6gvV2Bt/5nVrJvXMDEaUMXBk2wuRFAUF15n9x0Zexu3pTOB/bqRj+DLIc+9YUYQ+C7/zrYjJfpBpwygMD/g==",
+  "dgSpecHash": "kphjjhJfQ6GA+ih2GHggm2AjOkckcRBc0SeFm3psA1ufLWTfTMwoCjPBjDg2ZQBuai6fWMg1LYCw3YmddCvaUg==",
   "success": true,
   "projectFilePath": "D:\\Blabz\\RFP\\AddressBookSystem\\AddressBookSystem\\AddressBookSystem.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\Nikita\\.nuget\\packages\\microsoft.csharp\\4.3.0\\microsoft.csharp.4.3.0.nupkg.sha512",
     "C:\\Users\\Nikita\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Nikita\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\Nikita\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Nikita\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\Nikita\\.nuget\\packages\\system.diagnostics.debug\\4.3.0\\system.diagnostics.debug.4.3.0.nupkg.sha512",
     "C:\\Users\\Nikita\\.nuget\\packages\\system.dynamic.runtime\\4.3.0\\system.dynamic.runtime.4.3.0.nupkg.sha512",

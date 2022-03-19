@@ -15,7 +15,10 @@ namespace AddressBookSystem
                     " \n 3 for editing the existing contact \n 4 for deleting the contact " +
                     "\n 5 for viewing Address book \n 6 for searching person by its state and city " +
                      " \n 7 for for sorting address book alphabetically" +
-                     "\n 8 for sorting the address book by state , city and zip  alphabetically");
+                     "\n 8 for sorting the address book by state , city and zip  alphabetically"+
+                      " \n 9 Read and write text file" +
+                       " \n 10 Read and write csv file" +
+                       " \n 10 Read and write json file");
 
 
                 Console.WriteLine("................................................");
@@ -65,6 +68,10 @@ namespace AddressBookSystem
                     case 10:
                         AddressBook.WriteAddressBookUsingCsvWriter();
                         AddressBook.ReadingAllPersonContactsfromCSVFile();
+                        break;
+
+                    case 11:
+                        AddressBook.JsonSerializeAddressBook();
                         break;
 
                     default:

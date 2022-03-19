@@ -1,4 +1,5 @@
 ﻿using CsvHelper;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -445,6 +446,13 @@ namespace AddressBookSystem
             }
         }
 
+        public static void JsonSerializeAddressBook()
+        {
+            string jsonPath = @"D:\Blabz\RFP\AddressBookSystem\AddressBookSystem\Files\AddressBook.json";
+            string result = JsonConvert.SerializeObject(AddressBookDictionary);
 
+            File.AppendAllText(jsonPath, result);
+
+        }
     }
 }
