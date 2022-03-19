@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace AddressBookSystem
@@ -361,6 +362,45 @@ namespace AddressBookSystem
             else
             {
                 Console.WriteLine("This address book doesn't exists in our record.");
+            }
+        }
+        public static void WriteAddressBookUsingStreamWriter()
+        {
+            string path = @"D:\Blabz\RFP\AddressBookSystem\AddressBookSystem\Files\AddressBook.txt";
+            using (StreamWriter se = File.AppendText(path))
+            {
+                foreach (KeyValuePair<string, List<Person>> item in AddressBookDictionary)
+                {
+                    foreach (var items in item.Value)
+                    {
+                        se.WriteLine("First Name -" + items.FirstName);
+                        se.WriteLine("Last Name -" + items.LastName);
+                        se.WriteLine("Address -" + items.Address);
+                        se.WriteLine("Phone Number - " + items.PhoneNumber);
+                        se.WriteLine("Email ID -" + items.EmailId);
+                        se.WriteLine("City -" + items.City);
+                        se.WriteLine("State -" + items.State);
+                        se.WriteLine("ZIP Code -" + items.ZipCode);
+                    }
+                    se.WriteLine("--------------------------------------------------------------");
+                }
+                se.Close();
+                Console.WriteLine(File.ReadAllText(path));
+            }
+        }
+        public static void ReadAddressBookUsingStreamReader()
+        {
+            Console.WriteLine("The contact List using StreamReader method ");
+
+            string path = @"D:\Blabz\RFP\AddressBookSystem\AddressBookSystem\Files\AddressBook.txt";
+            using (StreamReader se = File.OpenText(path))
+            {
+                string s = " ";
+                while ((s = se.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+
             }
         }
     }
