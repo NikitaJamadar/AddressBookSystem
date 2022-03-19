@@ -1,6 +1,9 @@
-﻿using System;
+﻿using CsvHelper;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace AddressBookSystem
@@ -403,5 +406,45 @@ namespace AddressBookSystem
 
             }
         }
+        //Writing Csv File
+
+        public static void WriteAddressBookUsingCsvWriter()
+        {
+            string csvPath = @"D:\Blabz\RFP\AddressBookSystem\AddressBookSystem\Files\AddressBook.csv";
+           
+            using (var writer=new StreamWriter(csvPath))
+            {
+                using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                {
+                    foreach (KeyValuePair<string, List<Person>> item in AddressBookDictionary)
+                    {
+                        foreach (var items in item.Value)
+                        {
+                            List<Person> CSV = new List<Person>();
+                            CSV.Add(items);
+                            csv.WriteRecords(CSV);
+                        }
+                    }
+                }
+                writer.Close();
+            }
+            
+        }
+        public static void ReadingAllPersonContactsfromCSVFile()
+        {
+            string csvPath = @"D:\Blabz\RFP\AddressBookSystem\AddressBookSystem\Files\AddressBook.csv";
+
+            using (StreamReader streamreader = new StreamReader(csvPath))
+            using (CsvReader csvReader = new CsvReader(streamreader, CultureInfo.InvariantCulture))
+            {
+                var records = csvReader.GetRecords<Person>().ToList();
+                foreach (Person contact in records)
+                {
+                    Console.WriteLine(contact.ToString());
+                }
+            }
+        }
+
+
     }
 }

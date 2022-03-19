@@ -62,6 +62,11 @@ namespace AddressBookSystem
                         AddressBook.ReadAddressBookUsingStreamReader();
                         break;
 
+                    case 10:
+                        AddressBook.WriteAddressBookUsingCsvWriter();
+                        AddressBook.ReadingAllPersonContactsfromCSVFile();
+                        break;
+
                     default:
 
                         Console.WriteLine("Enter valid choice.");
